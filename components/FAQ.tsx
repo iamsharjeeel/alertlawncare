@@ -14,13 +14,13 @@ export function FAQ() {
       <div className="slp-grid mt-10">
         <div className="col-span-12 md:col-span-10 md:col-start-3">
           {faqs.map((item) => (
-            <details key={item.q} className="group border-t border-hairline last:border-b">
-              <summary className="flex min-h-14 cursor-pointer list-none items-baseline justify-between gap-6 py-5 text-left">
-                <span className="text-[18px] font-medium">{item.q}</span>
-                <span className="meta text-muted group-open:hidden">Open</span>
-                <span className="meta hidden text-muted group-open:inline">Close</span>
+            <details key={item.q} className="faq-item group border-t border-hairline last:border-b">
+              <summary className="flex min-h-14 cursor-pointer list-none items-baseline justify-between gap-6 px-2 py-5 text-left md:px-3">
+                <span className="text-[18px] font-medium tracking-[-0.01em]">{item.q}</span>
+                <span className="meta shrink-0 text-muted group-open:hidden">Open</span>
+                <span className="meta hidden shrink-0 text-muted group-open:inline">Close</span>
               </summary>
-              <p className="slp-measure pb-6 text-body">{item.a}</p>
+              <p className="slp-measure px-2 pb-6 text-[17px] leading-7 text-body md:px-3">{item.a}</p>
             </details>
           ))}
         </div>

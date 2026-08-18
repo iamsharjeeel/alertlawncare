@@ -176,7 +176,7 @@ export function AssessmentForm() {
           {["Residential", "Commercial"].map((value) => (
             <label
               key={value}
-              className="flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
+              className="choice-row flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
             >
               <input type="radio" name="property_type" value={value} required className="accent-amber" />
               {value}
@@ -198,7 +198,7 @@ export function AssessmentForm() {
           {interestOptions.map((option) => (
             <label
               key={option.value}
-              className="flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
+              className="choice-row flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
             >
               <input
                 type="checkbox"
@@ -224,7 +224,7 @@ export function AssessmentForm() {
           name="notes"
           rows={4}
           maxLength={LIMITS.notes}
-          className="w-full min-w-0 border border-hairline-dark bg-transparent px-3 py-2.5 text-[16px] text-paper"
+          className="form-control w-full min-w-0 border border-hairline-dark bg-transparent px-3 py-2.5 text-[16px] text-paper"
         />
       </label>
 
@@ -279,7 +279,7 @@ function Field({
         maxLength={maxLength}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={`w-full min-w-0 border bg-transparent px-3 py-2.5 text-[16px] text-paper ${
+        className={`form-control w-full min-w-0 border bg-transparent px-3 py-2.5 text-[16px] text-paper ${
           error ? "border-amber" : "border-hairline-dark"
         }`}
       />

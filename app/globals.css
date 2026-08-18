@@ -13,6 +13,9 @@
   --slp-hairline-dark: rgba(255, 255, 255, 0.18);
   --slp-gutter: clamp(1rem, 2vw, 1.75rem);
   --slp-margin: clamp(1.25rem, 5vw, 4.5rem);
+  --slp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --slp-duration: 220ms;
+  --slp-duration-slow: 280ms;
   --background: var(--slp-paper);
   --foreground: var(--slp-ink);
   --font-primary: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -128,6 +131,29 @@ button {
   font-family: var(--font-editorial);
   font-weight: 600;
   letter-spacing: 0.06em;
+  transition:
+    background-color var(--slp-duration) var(--slp-ease),
+    color var(--slp-duration) var(--slp-ease),
+    transform var(--slp-duration) var(--slp-ease),
+    box-shadow var(--slp-duration) var(--slp-ease);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover {
+    transform: translateY(-1px);
+  }
+
+  .cta.bg-amber:hover {
+    background-color: #e0ad5c;
+  }
+
+  .cta.bg-ink:hover {
+    background-color: var(--slp-forest-deep);
+  }
 }
 
 .display {
@@ -181,10 +207,360 @@ button {
 
 .img-editorial {
   filter: grayscale(1) contrast(1.12) brightness(0.92);
+  transform: scale(1);
+  transition:
+    transform var(--slp-duration-slow) var(--slp-ease),
+    filter var(--slp-duration-slow) var(--slp-ease);
+}
+
+.img-frame {
+  overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .img-frame:hover .img-editorial {
+    transform: scale(1.035);
+    filter: grayscale(0.85) contrast(1.14) brightness(0.95);
+  }
 }
 
 .hairline {
   border-color: var(--slp-hairline);
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(242, 241, 238, 0.78);
+  transition: color var(--slp-duration) var(--slp-ease);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35em;
+  width: 100%;
+  height: 1px;
+  background: var(--slp-amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--slp-duration) var(--slp-ease);
+}
+
+.nav-link:focus-visible {
+  color: var(--slp-paper);
+}
+
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover {
+    color: var(--slp-paper);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.link-phone {
+  transition: color var(--slp-duration) var(--slp-ease);
+}
+
+.link-phone:focus-visible {
+  color: var(--slp-amber);
+}
+
+.link-phone-accent {
+  transition: color var(--slp-duration) var(--slp-ease);
+}
+
+.link-phone-accent:focus-visible {
+  color: var(--slp-paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link-phone:hover {
+    color: var(--slp-amber);
+  }
+
+  .link-phone-accent:hover {
+    color: var(--slp-paper);
+  }
+}
+
+.trust-bar {
+  background: var(--slp-ink);
+  border-color: var(--slp-hairline-dark);
+}
+
+.trust-item {
+  color: rgba(242, 241, 238, 0.58);
+  background: transparent;
+  cursor: default;
+  transition:
+    background-color var(--slp-duration-slow) var(--slp-ease),
+    color var(--slp-duration-slow) var(--slp-ease),
+    box-shadow var(--slp-duration-slow) var(--slp-ease);
+}
+
+.trust-item:focus-visible {
+  background: var(--slp-forest);
+  color: var(--slp-paper);
+  box-shadow: inset 0 -2px 0 var(--slp-amber);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trust-item {
+    cursor: pointer;
+  }
+
+  .trust-item:hover {
+    background: var(--slp-forest);
+    color: var(--slp-paper);
+    box-shadow: inset 0 -2px 0 var(--slp-amber);
+  }
+}
+
+@media (hover: none) {
+  .trust-item {
+    color: rgba(242, 241, 238, 0.72);
+  }
+
+  .trust-item:nth-child(2) {
+    background: var(--slp-forest);
+    color: var(--slp-paper);
+    box-shadow: inset 0 -2px 0 var(--slp-amber);
+  }
+
+  .trust-item:active {
+    background: var(--slp-forest);
+    color: var(--slp-paper);
+  }
+}
+
+.split-row {
+  position: relative;
+  border-top: 1px solid var(--slp-hairline);
+  padding: 0.95rem 0.9rem 0.95rem 1.1rem;
+  color: var(--slp-body);
+  transition:
+    background-color var(--slp-duration) var(--slp-ease),
+    color var(--slp-duration) var(--slp-ease);
+}
+
+.split-list .split-row:last-child {
+  border-bottom: 1px solid var(--slp-hairline);
+}
+
+.split-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--slp-amber);
+  opacity: 0.28;
+  transition: opacity var(--slp-duration) var(--slp-ease);
+}
+
+.split-row:focus-visible {
+  background: rgba(24, 79, 59, 0.05);
+  color: var(--slp-ink);
+  outline-offset: -2px;
+}
+
+.split-row:focus-visible::before {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .split-row:hover {
+    background: rgba(24, 79, 59, 0.05);
+    color: var(--slp-ink);
+  }
+
+  .split-row:hover::before {
+    opacity: 1;
+  }
+}
+
+.audience-pane {
+  transition: background-color var(--slp-duration-slow) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .audience-pane:hover {
+    background: rgba(24, 79, 59, 0.028);
+  }
+}
+
+.testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--slp-hairline-dark);
+  padding: 1.65rem 1.4rem 1.5rem;
+  background: transparent;
+  transition:
+    background-color var(--slp-duration-slow) var(--slp-ease),
+    border-color var(--slp-duration-slow) var(--slp-ease),
+    transform var(--slp-duration-slow) var(--slp-ease);
+}
+
+.testimonial::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.75rem;
+  height: 1px;
+  background: var(--slp-amber);
+  opacity: 0.5;
+  transition:
+    width var(--slp-duration-slow) var(--slp-ease),
+    opacity var(--slp-duration-slow) var(--slp-ease);
+}
+
+.testimonial:focus-within {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(214, 154, 72, 0.42);
+}
+
+.testimonial:focus-within::before {
+  width: 4.75rem;
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .testimonial:hover {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(214, 154, 72, 0.42);
+    transform: translateY(-2px);
+  }
+
+  .testimonial:hover::before {
+    width: 4.75rem;
+    opacity: 1;
+  }
+}
+
+.process-step {
+  transition: background-color var(--slp-duration) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .process-step:hover {
+    background: rgba(24, 79, 59, 0.04);
+  }
+}
+
+.faq-item {
+  transition: background-color var(--slp-duration) var(--slp-ease);
+}
+
+.faq-item summary {
+  transition: color var(--slp-duration) var(--slp-ease);
+}
+
+.faq-item[open] {
+  background: rgba(23, 24, 22, 0.028);
+}
+
+.faq-item[open] summary {
+  color: var(--slp-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faq-item:hover {
+    background: rgba(23, 24, 22, 0.03);
+  }
+}
+
+.system-block {
+  transition: background-color var(--slp-duration-slow) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .system-block:hover {
+    background: rgba(24, 79, 59, 0.03);
+  }
+}
+
+.choice-row {
+  transition:
+    border-color var(--slp-duration) var(--slp-ease),
+    background-color var(--slp-duration) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .choice-row:hover {
+    border-color: rgba(214, 154, 72, 0.55);
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.form-control {
+  transition: border-color var(--slp-duration) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .form-control:hover {
+    border-color: rgba(242, 241, 238, 0.42);
+  }
+}
+
+.quote-rule {
+  transition: border-color var(--slp-duration) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .quote-rule:hover {
+    border-color: var(--slp-amber);
+  }
+}
+
+.menu-link {
+  transition: color var(--slp-duration) var(--slp-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-link:hover {
+    color: var(--slp-amber);
+  }
+}
+
+.menu-btn {
+  transition:
+    border-color var(--slp-duration) var(--slp-ease),
+    color var(--slp-duration) var(--slp-ease),
+    background-color var(--slp-duration) var(--slp-ease);
+}
+
+.menu-btn:focus-visible {
+  border-color: var(--slp-amber);
+  color: var(--slp-paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-btn:hover {
+    border-color: var(--slp-amber);
+    color: var(--slp-paper);
+  }
+}
+
+@media (max-height: 900px) and (min-width: 768px) {
+  .display-hero {
+    font-size: clamp(2.35rem, 7.8vh, 5.25rem);
+  }
+}
+
+summary {
+  list-style: none;
 }
 
 summary::-webkit-details-marker {

@@ -2,9 +2,16 @@
 
 ## What changed
 
-HighLevel External Tracking is live: `https://api.alertlawncare.com/js/external-tracking.js` with tracking ID `tk_a7e73cf9f8df47c9aad3f47eba59e3c4`. CSP allows `backend.leadconnectorhq.com` so pageviews and form submissions can POST. Native assessment form still posts to `/api/lead`.
+Precision polish pass on the existing editorial site (not a redesign):
 
-Prior rebuild: editorial property-maintenance page (lawn, pool, floor; residential and commercial; free on-site assessment).
+- Hero composition tightened so the headline, offer, CTA, image, and trust line sit in the first desktop viewport
+- Trust bar defaults to restrained monochrome and activates forest/amber on hover
+- Systems H2 is art-directed as two lines: “Three maintenance jobs.” / “One point of contact.”
+- Audience H2 stays one line on large desktops: “Homes and commercial sites.”
+- Residential/commercial split and team/testimonial section get tighter rhythm, hairline panels, and restrained row/block hover
+- Site-wide micro-interactions (nav, CTAs, FAQ, process, images, phones) at 220–280ms; `prefers-reduced-motion` still disables transitions
+
+Prior: HighLevel External Tracking is live (`https://api.alertlawncare.com/js/external-tracking.js`, ID `tk_a7e73cf9f8df47c9aad3f47eba59e3c4`). Native assessment form still posts to `/api/lead`.
 
 ## Brand
 
@@ -81,6 +88,7 @@ This is not a claim that the site is 100% secure.
 
 ## Files
 
-- `app/layout.tsx`, `components/GHLExternalTracking.tsx`, `lib/ghl.ts`, `lib/csp.ts`, `HIGHLEVEL_TRACKING_QA.md`
+- Polish: `app/globals.css`, `components/Hero.tsx`, `TrustStrip.tsx`, `SystemsSection.tsx`, `AudienceSplit.tsx`, `Testimonials.tsx`, `Header.tsx`, `Footer.tsx`, `FAQ.tsx`, `ProcessSection.tsx`, `AssessmentSection.tsx`, `AssessmentForm.tsx`, `EditorialStatement.tsx`
+- Tracking: `app/layout.tsx`, `components/GHLExternalTracking.tsx`, `lib/ghl.ts`, `lib/csp.ts`, `HIGHLEVEL_TRACKING_QA.md`
 
 Also: `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`
