@@ -15,6 +15,8 @@
   --slp-margin: clamp(1.25rem, 5vw, 4.5rem);
   --background: var(--slp-paper);
   --foreground: var(--slp-ink);
+  --font-primary: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-editorial: var(--font-ibm-plex), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 @theme inline {
@@ -27,8 +29,8 @@
   --color-muted: var(--slp-muted);
   --color-hairline: var(--slp-hairline);
   --color-hairline-dark: var(--slp-hairline-dark);
-  --font-display: var(--font-space-grotesk);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-primary);
+  --font-editorial: var(--font-ibm-plex), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 *,
@@ -57,9 +59,11 @@ html {
 body {
   background: var(--slp-paper);
   color: var(--slp-ink);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-primary);
   font-size: 18px;
-  line-height: 1.55;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
 }
 
 ::selection {
@@ -85,6 +89,14 @@ body {
   max-width: 38rem;
 }
 
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  border-radius: 0;
+}
+
 .skip-link {
   position: absolute;
   left: var(--slp-margin);
@@ -93,6 +105,7 @@ body {
   background: var(--slp-amber);
   color: var(--slp-ink);
   padding: 0.65rem 0.9rem;
+  font-family: var(--font-editorial);
   font-size: 0.85rem;
   font-weight: 600;
   transform: translateY(-150%);
@@ -102,17 +115,68 @@ body {
   transform: translateY(0);
 }
 
-.display {
-  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.nav-type {
+  font-family: var(--font-editorial);
   font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  letter-spacing: 0.015em;
+}
+
+.cta {
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.display {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.display-hero {
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+}
+
+.display-sub {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.lead {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
 }
 
 .meta {
-  font-size: 0.72rem;
+  font-family: var(--font-editorial);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.trust {
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-label {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -122,14 +186,6 @@ body {
 
 .hairline {
   border-color: var(--slp-hairline);
-}
-
-input,
-select,
-textarea,
-button {
-  font: inherit;
-  border-radius: 0;
 }
 
 summary::-webkit-details-marker {

@@ -12,26 +12,26 @@ export function Hero() {
         <div className="col-span-12 md:col-span-7 md:pr-8">
           <h1
             id="hero-heading"
-            className="display max-w-[14ch] text-[clamp(2.4rem,10vw,8rem)]"
+            className="display display-hero max-w-[14ch] text-[clamp(2.4rem,10vw,8rem)]"
           >
             Routine maintenance shouldn&apos;t wait for service day.
           </h1>
-          <p className="slp-measure mt-8 text-[17px] leading-7 text-paper/80 md:text-[18px]">
+          <p className="lead slp-measure mt-8 text-[17px] text-paper/80 md:text-[18px]">
             Smart Lawn Pro installs and manages robotic systems for lawns, pools and floors.
             The equipment works on a schedule. We handle the setup, service and adjustments.
           </p>
           <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <a
               href="#assess"
-              className="inline-flex min-h-12 items-center bg-amber px-5 py-3 text-[13px] font-semibold tracking-[0.12em] text-ink uppercase"
+              className="cta inline-flex min-h-12 items-center bg-amber px-6 py-3 text-[13px] text-ink uppercase"
             >
               Book a free on-site assessment
             </a>
-            <a href={`tel:${brand.phoneTel}`} className="text-[15px] text-paper/80">
+            <a href={`tel:${brand.phoneTel}`} className="font-editorial text-[15px] text-paper/80">
               Call {brand.phoneDisplay}
             </a>
           </div>
-          <p className="mt-8 max-w-xl text-[13px] tracking-[0.08em] text-paper/55 uppercase">
+          <p className="trust mt-8 max-w-xl text-[13px] text-paper/55">
             USMC veteran owned / Family operated / Fully managed
           </p>
           <p className="mt-3 text-[14px] text-paper/55">

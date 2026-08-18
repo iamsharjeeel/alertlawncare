@@ -91,7 +91,7 @@ export function AssessmentForm() {
         tabIndex={-1}
         className="border border-hairline-dark p-6 text-paper"
       >
-        <p className="display text-2xl">Request received.</p>
+        <p className="display-sub text-2xl">Request received.</p>
         <p className="mt-3 max-w-md text-[16px] text-paper/75">
           We&apos;ll use this information to contact you about your property assessment. You can
           also call {brand.phoneDisplay}.
@@ -167,7 +167,7 @@ export function AssessmentForm() {
       />
 
       <fieldset>
-        <legend className="meta text-paper/70">
+        <legend className="form-label text-paper/70">
           Property type <span className="text-amber">Required</span>
         </legend>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -189,7 +189,7 @@ export function AssessmentForm() {
       </fieldset>
 
       <fieldset>
-        <legend className="meta text-paper/70">
+        <legend className="form-label text-paper/70">
           Interested in <span className="text-amber">Required</span>
         </legend>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -216,7 +216,7 @@ export function AssessmentForm() {
       </fieldset>
 
       <label className="grid gap-2">
-        <span className="meta text-paper/70">Notes</span>
+        <span className="form-label text-paper/70">Notes</span>
         <textarea
           id="notes"
           name="notes"
@@ -229,7 +229,7 @@ export function AssessmentForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="min-h-12 bg-amber px-5 text-[13px] font-semibold tracking-[0.14em] text-ink uppercase disabled:opacity-60"
+        className="cta min-h-12 bg-amber px-6 text-[13px] text-ink uppercase disabled:opacity-60"
       >
         {status === "submitting" ? "Sending" : "Book my assessment"}
       </button>
@@ -264,7 +264,7 @@ function Field({
   const errorId = `${id}-error`;
   return (
     <label className="grid gap-2">
-      <span className="meta text-paper/70">
+      <span className="form-label text-paper/70">
         {label} {required ? <span className="text-amber">Required</span> : null}
       </span>
       <input

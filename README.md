@@ -4,6 +4,8 @@ Editorial marketing site for Smart Lawn Pro (`smartlawn.pro`).
 
 Automated property maintenance: lawn, pool and floor systems for residential and commercial properties.
 
+Typography: Poppins (brand, headings, body, forms) and IBM Plex Sans (navigation, CTAs, labels, metadata). Loaded with `next/font/google`.
+
 ## Setup
 
 ```bash

@@ -44,7 +44,7 @@ export function SystemsSection() {
               <p className="meta text-amber">
                 {system.index} {system.label}
               </p>
-              <h3 className="display mt-4 text-[clamp(2rem,3vw,3.25rem)]">{system.title}</h3>
+              <h3 className="display-sub mt-4 text-[clamp(2rem,3vw,3.25rem)]">{system.title}</h3>
               <p className="slp-measure mt-5 text-body">{system.body}</p>
             </div>
           </article>

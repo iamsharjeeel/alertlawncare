@@ -15,14 +15,14 @@ export function AssessmentSection() {
           </p>
           <a
             href={`tel:${brand.phoneTel}`}
-            className="mt-8 inline-block text-[clamp(1.8rem,3vw,2.75rem)] font-medium tracking-tight text-amber"
+            className="font-editorial mt-8 inline-block text-[clamp(1.8rem,3vw,2.75rem)] font-medium tracking-tight text-amber"
           >
             {brand.phoneDisplay}
           </a>
-          <p className="mt-3 text-[15px] tracking-[0.12em] uppercase">{brand.domain}</p>
+          <p className="font-editorial mt-3 text-[15px] font-semibold tracking-[0.12em] uppercase">{brand.domain}</p>
         </div>
         <div className="col-span-12 md:col-span-6">
-          <h3 className="display text-2xl">Book your free assessment</h3>
+          <h3 className="display-sub text-2xl">Book your free assessment</h3>
           <div className="mt-6">
             <AssessmentForm />
           </div>

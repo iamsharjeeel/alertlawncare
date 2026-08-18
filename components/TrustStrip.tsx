@@ -6,7 +6,7 @@ export function TrustStrip() {
           {["USMC veteran owned", "Family operated", "Fully managed"].map((item) => (
             <li
               key={item}
-              className="border-b border-hairline-dark py-4 text-center text-[12px] font-medium tracking-[0.16em] uppercase last:border-b-0 md:border-b-0 md:border-r md:py-5 md:last:border-r-0"
+              className="trust border-b border-hairline-dark py-4 text-center text-[12px] last:border-b-0 md:border-b-0 md:border-r md:py-5 md:last:border-r-0"
             >
               {item}
             </li>

@@ -12,7 +12,7 @@ export function AudienceSplit() {
       <div className="slp-grid mt-12 border-t border-hairline">
         <div id="residential" className="col-span-12 py-10 md:col-span-6 md:border-r md:border-hairline md:pr-12 md:py-14">
           <p className="meta text-amber">Residential</p>
-          <h3 className="display mt-4 text-[clamp(2rem,3vw,3.25rem)]">
+          <h3 className="display-sub mt-4 text-[clamp(2rem,3vw,3.25rem)]">
             Fewer recurring chores on the calendar.
           </h3>
           <p className="slp-measure mt-5 text-body">
@@ -29,7 +29,7 @@ export function AudienceSplit() {
         </div>
         <div id="commercial" className="col-span-12 py-10 md:col-span-6 md:pl-12 md:py-14">
           <p className="meta text-amber">Commercial</p>
-          <h3 className="display mt-4 text-[clamp(2rem,3vw,3.25rem)]">
+          <h3 className="display-sub mt-4 text-[clamp(2rem,3vw,3.25rem)]">
             Take repetitive maintenance off the staff task list.
           </h3>
           <p className="slp-measure mt-5 text-body">

@@ -12,7 +12,7 @@ export function Footer() {
             {brand.serviceArea}.
           </p>
         </div>
-        <nav className="col-span-12 flex flex-wrap gap-x-6 gap-y-3 text-[14px] text-paper/75 md:col-span-4">
+        <nav className="nav-type col-span-12 flex flex-wrap gap-x-6 gap-y-3 text-[14px] text-paper/75 md:col-span-4">
           {nav.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
@@ -20,12 +20,12 @@ export function Footer() {
           ))}
         </nav>
         <div className="col-span-12 md:col-span-3 md:text-right">
-          <a href={`tel:${brand.phoneTel}`} className="text-amber">
+          <a href={`tel:${brand.phoneTel}`} className="font-editorial text-amber">
             {brand.phoneDisplay}
           </a>
-          <p className="mt-2 text-[14px] text-paper/60">{brand.domain}</p>
+          <p className="font-editorial mt-2 text-[14px] text-paper/60">{brand.domain}</p>
         </div>
-        <p className="col-span-12 border-t border-hairline-dark pt-6 text-[13px] text-paper/45">
+        <p className="font-editorial col-span-12 border-t border-hairline-dark pt-6 text-[13px] text-paper/45">
           © {new Date().getFullYear()} {brand.name}.
         </p>
       </div>

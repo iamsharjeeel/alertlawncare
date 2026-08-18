@@ -29,7 +29,7 @@ export function Header() {
         <a href="#top" className="col-span-8 md:col-span-3">
           <Wordmark />
         </a>
-        <nav className="col-span-9 hidden items-center justify-end gap-7 text-[13px] tracking-wide md:col-start-4 md:flex">
+        <nav className="nav-type col-span-9 hidden items-center justify-end gap-7 text-[13px] md:col-start-4 md:flex">
           {nav.map((item) => (
             <a key={item.href} href={item.href} className="text-paper/80 hover:text-paper">
               {item.label}
@@ -38,23 +38,17 @@ export function Header() {
           <a href={`tel:${brand.phoneTel}`} className="text-paper/70">
             {brand.phoneDisplay}
           </a>
-          <a
-            href="#assess"
-            className="bg-amber px-4 py-2.5 text-[12px] font-semibold tracking-[0.12em] text-ink uppercase"
-          >
+          <a href="#assess" className="cta bg-amber px-5 py-2.5 text-[12px] text-ink uppercase">
             Book an assessment
           </a>
         </nav>
         <div className="col-span-4 flex items-center justify-end gap-3 md:hidden">
-          <a
-            href="#assess"
-            className="bg-amber px-3 py-2 text-[11px] font-semibold tracking-[0.12em] text-ink uppercase"
-          >
+          <a href="#assess" className="cta bg-amber px-4 py-2 text-[11px] text-ink uppercase">
             Book
           </a>
           <button
             type="button"
-            className="min-h-11 min-w-11 border border-hairline-dark px-2 text-[11px] font-semibold tracking-[0.14em] uppercase"
+            className="font-editorial min-h-11 min-w-11 border border-hairline-dark px-2 text-[11px] font-semibold tracking-[0.14em] uppercase"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((value) => !value)}
@@ -65,7 +59,7 @@ export function Header() {
       </div>
       {open ? (
         <div id={menuId} className="border-t border-hairline-dark bg-ink px-[var(--slp-margin)] py-6 md:hidden">
-          <nav className="grid gap-1">
+          <nav className="nav-type grid gap-1">
             {nav.map((item) => (
               <a
                 key={item.href}

@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { connection } from "next/server";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, Poppins } from "next/font/google";
 import { GHLExternalTracking } from "@/components/GHLExternalTracking";
 import { brand } from "@/lib/brand";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
   weight: ["400", "500", "600"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
-const inter = Inter({
+const ibmPlex = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
   weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex",
   display: "swap",
 });
 
@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const nonce = headerStore.get("x-nonce") ?? undefined;
 
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} h-full`}>
+    <html lang="en" className={`${poppins.variable} ${ibmPlex.variable} h-full`}>
       <body className="min-h-full bg-paper font-sans text-ink antialiased">
         {children}
         <GHLExternalTracking nonce={nonce} />

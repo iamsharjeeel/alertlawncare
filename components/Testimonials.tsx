@@ -28,9 +28,11 @@ export function Testimonials() {
             <blockquote>
               <p className="text-[16px] leading-7 text-paper/85">&ldquo;{item.quote}&rdquo;</p>
             </blockquote>
-            <figcaption className="mt-6 text-[13px] tracking-[0.08em] text-paper/55 uppercase">
+            <figcaption className="trust mt-6 text-[13px] text-paper/55">
               {item.name}
-              <span className="block normal-case tracking-normal text-paper/45">{item.location}</span>
+              <span className="font-editorial mt-1 block font-normal normal-case tracking-normal text-paper/45">
+                {item.location}
+              </span>
             </figcaption>
           </figure>
         ))}

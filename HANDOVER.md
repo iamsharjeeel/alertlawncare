@@ -2,7 +2,9 @@
 
 ## What changed
 
-Rebuilt the Smart Lawn Pro site as an editorial property-maintenance page: lawn, pool and floor systems, residential and commercial, free on-site assessment. Replaced the previous flyer-clone layout and the live Alert Lawn Care lawn-only narrative.
+Typography-only pass: Poppins is the primary brand/content face; IBM Plex Sans is the editorial/utility face. Layout, copy, color, and composition are unchanged. Loaded via `next/font/google` (latin, swap, required weights only). Tokens: `--font-primary`, `--font-editorial`.
+
+Prior rebuild: editorial property-maintenance page (lawn, pool, floor; residential and commercial; free on-site assessment).
 
 ## Brand
 
@@ -11,7 +13,7 @@ Rebuilt the Smart Lawn Pro site as an editorial property-maintenance page: lawn,
 - Domain: https://smartlawn.pro
 - Phone: 936-301-4433
 - Area: Conroe, Montgomery, Willis and The Woodlands
-- Fonts: Space Grotesk (display), Inter (body)
+- Fonts: Poppins (primary, 400/500/600), IBM Plex Sans (editorial/utility, 400/500/600)
 - Color tokens: `--slp-ink`, `--slp-forest`, `--slp-forest-deep`, `--slp-amber`, `--slp-paper`
 
 ## HighLevel
@@ -78,5 +80,6 @@ This is not a claim that the site is 100% secure.
 
 ## Files
 
-- `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`
-- `HIGHLEVEL_TRACKING_QA.md`, `README.md`, `CHANGELOG.md`
+Typography this pass: `app/layout.tsx`, `app/globals.css`, `components/{Header,Hero,Wordmark,TrustStrip,SystemsSection,EditorialStatement,AudienceSplit,ProcessSection,Testimonials,AssessmentSection,AssessmentForm,Footer}.tsx`, `app/thank-you/page.tsx`, `README.md`, `CHANGELOG.md`
+
+Also: `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`, `HIGHLEVEL_TRACKING_QA.md`

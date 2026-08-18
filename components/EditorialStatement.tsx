@@ -12,7 +12,7 @@ export function EditorialStatement() {
             week, with smaller jobs happening more often.
           </p>
           <blockquote className="mt-12 max-w-3xl border-l-2 border-amber pl-6">
-            <p className="display text-[clamp(1.6rem,3vw,2.75rem)] leading-[1.15] text-paper">
+            <p className="display-sub text-[clamp(1.6rem,3vw,2.75rem)] leading-[1.15] text-paper">
               The property spends less time waiting to be cut, cleaned or cleared.
             </p>
           </blockquote>

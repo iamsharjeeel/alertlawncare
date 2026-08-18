@@ -36,7 +36,7 @@ export default async function ThankYouPage({
                 ? `Call ${brand.phoneDisplay} and we will set up the assessment from there.`
                 : `We'll use this information to contact you about your property assessment. You can also call ${brand.phoneDisplay}.`}
             </p>
-            <Link href="/" className="mt-10 inline-flex min-h-12 items-center bg-ink px-5 text-[13px] font-semibold tracking-[0.12em] text-paper uppercase">
+            <Link href="/" className="cta mt-10 inline-flex min-h-12 items-center bg-ink px-6 text-[13px] text-paper uppercase">
               Back to Smart Lawn Pro
             </Link>
           </div>
