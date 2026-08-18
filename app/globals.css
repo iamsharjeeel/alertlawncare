@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --slp-ink: #171816;
+  --slp-forest: #184f3b;
+  --slp-forest-deep: #103c2d;
+  --slp-amber: #d69a48;
+  --slp-paper: #f2f1ee;
+  --slp-white: #ffffff;
+  --slp-body: #41413f;
+  --slp-muted: #5a5956;
+  --slp-hairline: rgba(23, 24, 22, 0.18);
+  --slp-hairline-dark: rgba(255, 255, 255, 0.18);
+  --slp-gutter: clamp(1rem, 2vw, 1.75rem);
+  --slp-margin: clamp(1.25rem, 5vw, 4.5rem);
+  --background: var(--slp-paper);
+  --foreground: var(--slp-ink);
+}
+
+@theme inline {
+  --color-ink: var(--slp-ink);
+  --color-forest: var(--slp-forest);
+  --color-forest-deep: var(--slp-forest-deep);
+  --color-amber: var(--slp-amber);
+  --color-paper: var(--slp-paper);
+  --color-body: var(--slp-body);
+  --color-muted: var(--slp-muted);
+  --color-hairline: var(--slp-hairline);
+  --color-hairline-dark: var(--slp-hairline-dark);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  background: var(--slp-paper);
+  color: var(--slp-ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+::selection {
+  background: var(--slp-amber);
+  color: var(--slp-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--slp-amber);
+  outline-offset: 3px;
+}
+
+.slp-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--slp-gutter);
+  padding-inline: var(--slp-margin);
+  width: min(100%, 1728px);
+  margin-inline: auto;
+}
+
+.slp-measure {
+  max-width: 38rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--slp-margin);
+  top: 0.75rem;
+  z-index: 80;
+  background: var(--slp-amber);
+  color: var(--slp-ink);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.display {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.meta {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.img-editorial {
+  filter: grayscale(1) contrast(1.12) brightness(0.92);
+}
+
+.hairline {
+  border-color: var(--slp-hairline);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  border-radius: 0;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
