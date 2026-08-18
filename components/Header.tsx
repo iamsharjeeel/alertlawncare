@@ -25,17 +25,17 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline-dark bg-ink text-paper">
-      <div className="slp-grid items-center py-4">
+      <div className="slp-grid items-center py-3 md:py-3.5">
         <a href="#top" className="col-span-8 md:col-span-3">
           <Wordmark />
         </a>
         <nav className="nav-type col-span-9 hidden items-center justify-end gap-7 text-[13px] md:col-start-4 md:flex">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} className="text-paper/80 hover:text-paper">
+            <a key={item.href} href={item.href} className="nav-link">
               {item.label}
             </a>
           ))}
-          <a href={`tel:${brand.phoneTel}`} className="text-paper/70">
+          <a href={`tel:${brand.phoneTel}`} className="link-phone text-paper/70">
             {brand.phoneDisplay}
           </a>
           <a href="#assess" className="cta bg-amber px-5 py-2.5 text-[12px] text-ink uppercase">
@@ -48,7 +48,7 @@ export function Header() {
           </a>
           <button
             type="button"
-            className="font-editorial min-h-11 border border-hairline-dark px-3 text-[11px] font-semibold tracking-[0.14em] uppercase"
+            className="menu-btn font-editorial min-h-11 border border-hairline-dark px-3 text-[11px] font-semibold tracking-[0.14em] uppercase"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((value) => !value)}
@@ -64,13 +64,13 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="min-h-11 py-3 text-lg text-paper"
+                className="menu-link min-h-11 py-3 text-lg text-paper"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <a href={`tel:${brand.phoneTel}`} className="min-h-11 py-3 text-lg text-amber">
+            <a href={`tel:${brand.phoneTel}`} className="link-phone min-h-11 py-3 text-lg text-amber">
               {brand.phoneDisplay}
             </a>
           </nav>

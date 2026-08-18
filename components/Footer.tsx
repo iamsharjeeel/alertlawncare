@@ -12,15 +12,15 @@ export function Footer() {
             {brand.serviceArea}.
           </p>
         </div>
-        <nav className="nav-type col-span-12 flex flex-wrap gap-x-6 gap-y-3 text-[14px] text-paper/75 md:col-span-4">
+        <nav className="nav-type col-span-12 flex flex-wrap gap-x-6 gap-y-3 text-[14px] md:col-span-4">
           {nav.map((item) => (
-            <a key={item.href} href={item.href}>
+            <a key={item.href} href={item.href} className="nav-link">
               {item.label}
             </a>
           ))}
         </nav>
         <div className="col-span-12 md:col-span-3 md:text-right">
-          <a href={`tel:${brand.phoneTel}`} className="font-editorial text-amber">
+          <a href={`tel:${brand.phoneTel}`} className="link-phone-accent font-editorial text-amber">
             {brand.phoneDisplay}
           </a>
           <p className="font-editorial mt-2 text-[14px] text-paper/60">{brand.domain}</p>

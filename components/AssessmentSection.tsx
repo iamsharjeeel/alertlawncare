@@ -15,7 +15,7 @@ export function AssessmentSection() {
           </p>
           <a
             href={`tel:${brand.phoneTel}`}
-            className="font-editorial mt-8 inline-block text-[clamp(1.8rem,3vw,2.75rem)] font-medium tracking-tight text-amber"
+            className="link-phone-accent font-editorial mt-8 inline-block text-[clamp(1.8rem,3vw,2.75rem)] font-medium tracking-tight text-amber"
           >
             {brand.phoneDisplay}
           </a>

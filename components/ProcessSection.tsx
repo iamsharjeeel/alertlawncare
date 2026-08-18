@@ -15,7 +15,7 @@ export function ProcessSection() {
         {processSteps.map((step) => (
           <li
             key={step.index}
-            className="col-span-12 border-t border-hairline py-8 md:col-span-3 md:border-t-0 md:border-l md:py-0 md:pl-5 first:md:border-l-0 first:md:pl-0"
+            className="process-step col-span-12 border-t border-hairline px-1 py-8 md:col-span-3 md:border-t-0 md:border-l md:px-5 md:py-10 first:md:border-l-0 first:md:pl-0"
           >
             <p className="meta text-amber">{step.index}</p>
             <h3 className="display-sub mt-4 text-[1.65rem]">{step.title}</h3>
