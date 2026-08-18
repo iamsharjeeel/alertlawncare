@@ -108,7 +108,7 @@ export function AssessmentForm() {
       action="/api/lead"
       onSubmit={onSubmit}
       noValidate
-      className="grid gap-5"
+      className="grid min-w-0 gap-5"
     >
       <input ref={startedInput} type="hidden" name="form_started_at" defaultValue="" />
       <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
@@ -222,7 +222,7 @@ export function AssessmentForm() {
           name="notes"
           rows={4}
           maxLength={LIMITS.notes}
-          className="border border-hairline-dark bg-transparent px-3 py-2.5 text-[16px] text-paper"
+          className="w-full min-w-0 border border-hairline-dark bg-transparent px-3 py-2.5 text-[16px] text-paper"
         />
       </label>
 
@@ -277,7 +277,7 @@ function Field({
         maxLength={maxLength}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={`border bg-transparent px-3 py-2.5 text-[16px] text-paper ${
+        className={`w-full min-w-0 border bg-transparent px-3 py-2.5 text-[16px] text-paper ${
           error ? "border-amber" : "border-hairline-dark"
         }`}
       />

@@ -12,7 +12,7 @@ export function Hero() {
         <div className="col-span-12 md:col-span-7 md:pr-8">
           <h1
             id="hero-heading"
-            className="display display-hero max-w-[14ch] text-[clamp(2.4rem,10vw,8rem)]"
+            className="display display-hero max-w-[14ch] text-[clamp(2.4rem,10vw,6rem)]"
           >
             Routine maintenance shouldn&apos;t wait for service day.
           </h1>

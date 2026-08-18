@@ -48,7 +48,7 @@ export function Header() {
           </a>
           <button
             type="button"
-            className="font-editorial min-h-11 min-w-11 border border-hairline-dark px-2 text-[11px] font-semibold tracking-[0.14em] uppercase"
+            className="font-editorial min-h-11 border border-hairline-dark px-3 text-[11px] font-semibold tracking-[0.14em] uppercase"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((value) => !value)}

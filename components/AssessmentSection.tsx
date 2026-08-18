@@ -5,7 +5,7 @@ export function AssessmentSection() {
   return (
     <section id="assess" className="bg-forest text-paper" aria-labelledby="assess-heading">
       <div className="slp-grid items-start gap-y-10 py-16 md:py-24">
-        <div className="col-span-12 md:col-span-6 md:pr-8">
+        <div className="col-span-12 min-w-0 md:col-span-6 md:pr-8">
           <h2 id="assess-heading" className="display max-w-[14ch] text-[clamp(2.2rem,4.6vw,5rem)]">
             See what should be automated on your property.
           </h2>
@@ -21,7 +21,7 @@ export function AssessmentSection() {
           </a>
           <p className="font-editorial mt-3 text-[15px] font-semibold tracking-[0.12em] uppercase">{brand.domain}</p>
         </div>
-        <div className="col-span-12 md:col-span-6">
+        <div className="col-span-12 min-w-0 md:col-span-6">
           <h3 className="display-sub text-2xl">Book your free assessment</h3>
           <div className="mt-6">
             <AssessmentForm />
