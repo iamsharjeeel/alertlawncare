@@ -2,20 +2,27 @@
 
 ## Install
 
-1. Open HighLevel.
-2. Go to **Settings → External Tracking**.
-3. Copy the exact script. Do not change the `tk_...` tracking ID.
-4. Set these Vercel env vars (Production + Preview):
+The production script is already wired in `lib/ghl.ts`:
 
-```text
-NEXT_PUBLIC_GHL_TRACKING_SCRIPT_URL=https://link.example.com/js/external-tracking.js
-NEXT_PUBLIC_GHL_TRACKING_ID=tk_paste_the_real_id_here
+```html
+<script
+  src="https://api.alertlawncare.com/js/external-tracking.js"
+  data-tracking-id="tk_a7e73cf9f8df47c9aad3f47eba59e3c4">
+</script>
 ```
 
-Replace both values with the copied script. Do not invent an ID.
+Loaded once from `components/GHLExternalTracking.tsx` with `next/script`.
 
-5. Deploy `smartlawn.pro`.
-6. Submit a test lead, then check the browser network panel. If HighLevel calls extra HTTPS origins, add them:
+Env vars can override the defaults. They are public tracking values, not secrets.
+
+```text
+NEXT_PUBLIC_GHL_TRACKING_SCRIPT_URL=https://api.alertlawncare.com/js/external-tracking.js
+NEXT_PUBLIC_GHL_TRACKING_ID=tk_a7e73cf9f8df47c9aad3f47eba59e3c4
+```
+
+Pageviews and form events POST to `https://backend.leadconnectorhq.com/external-tracking/events`. CSP `connect-src` includes that origin plus the script host.
+
+If HighLevel later calls extra HTTPS origins, add them:
 
 ```text
 NEXT_PUBLIC_GHL_CONNECT_ORIGINS=https://allowed-host.example
@@ -33,7 +40,7 @@ Visit:
 https://smartlawn.pro/?utm_source=meta&utm_medium=paid_social&utm_campaign=tracking_test
 ```
 
-Confirm activity in **Sites → Analytics → External Tracking**.
+Confirm a request to `/external-tracking/events` with type `external_script_page_view`, then activity in **Sites → Analytics → External Tracking**.
 
 UTM parameters are not stripped. Internal section links keep the current query string because they are in-page hashes.
 
@@ -44,9 +51,10 @@ Form:
 ```text
 id="smart-lawn-pro-assessment"
 name="smart-lawn-pro-assessment"
+data-name="smart-lawn-pro-assessment"
 ```
 
-Native `<form>` in the DOM. Fields include `email`, `full_name`, `phone`, `property_address`, `property_type`, `services_interest`, `notes`.
+Native `<form>` in the DOM. HighLevel binds `submit` in the capture phase, so in-page `fetch` handling still reports the entry. Fields include `email`, `full_name`, `phone`, `property_address`, `property_type`, `services_interest`, `notes`. Hidden honeypot and timing fields are ignored by the tracker.
 
 Submit a real test lead.
 

@@ -2,7 +2,7 @@
 
 ## What changed
 
-Typography-only pass: Poppins is the primary brand/content face; IBM Plex Sans is the editorial/utility face. Layout, copy, color, and composition are unchanged. Loaded via `next/font/google` (latin, swap, required weights only). Tokens: `--font-primary`, `--font-editorial`.
+HighLevel External Tracking is live: `https://api.alertlawncare.com/js/external-tracking.js` with tracking ID `tk_a7e73cf9f8df47c9aad3f47eba59e3c4`. CSP allows `backend.leadconnectorhq.com` so pageviews and form submissions can POST. Native assessment form still posts to `/api/lead`.
 
 Prior rebuild: editorial property-maintenance page (lawn, pool, floor; residential and commercial; free on-site assessment).
 
@@ -19,8 +19,9 @@ Prior rebuild: editorial property-maintenance page (lawn, pool, floor; residenti
 ## HighLevel
 
 - Component: `components/GHLExternalTracking.tsx`
+- Config: `lib/ghl.ts` (script URL, tracking ID, event origin)
 - Loaded once at the end of `app/layout.tsx`
-- Env: `NEXT_PUBLIC_GHL_TRACKING_SCRIPT_URL`, `NEXT_PUBLIC_GHL_TRACKING_ID`
+- Env overrides: `NEXT_PUBLIC_GHL_TRACKING_SCRIPT_URL`, `NEXT_PUBLIC_GHL_TRACKING_ID`, `NEXT_PUBLIC_GHL_CONNECT_ORIGINS`
 - Form: `smart-lawn-pro-assessment`
 - QA: `HIGHLEVEL_TRACKING_QA.md`
 
@@ -58,7 +59,7 @@ Not a database, auth, or admin app.
 
 ### Remaining Security Considerations
 
-- HighLevel `connect-src` hosts cannot be known until the real script is installed and tested.
+- HighLevel `connect-src` already includes `https://backend.leadconnectorhq.com`. Add extra origins only if a later script version calls new hosts.
 - Optional Resend must use a verified from-address.
 - Source maps follow the Vercel project setting.
 
@@ -66,7 +67,7 @@ This is not a claim that the site is 100% secure.
 
 ### Manual Configuration Required
 
-1. Paste HighLevel External Tracking env vars.
+1. Confirm External Tracking events in HighLevel after a production deploy.
 2. After a test submission, add any extra HighLevel `connect-src` origins.
 3. Optional: `RESEND_API_KEY` and `LEAD_TO_EMAIL`.
 4. Attach `smartlawn.pro` in Vercel DNS when ready.
@@ -80,6 +81,6 @@ This is not a claim that the site is 100% secure.
 
 ## Files
 
-Typography this pass: `app/layout.tsx`, `app/globals.css`, `components/{Header,Hero,Wordmark,TrustStrip,SystemsSection,EditorialStatement,AudienceSplit,ProcessSection,Testimonials,AssessmentSection,AssessmentForm,Footer}.tsx`, `app/thank-you/page.tsx`, `README.md`, `CHANGELOG.md`
+- `app/layout.tsx`, `components/GHLExternalTracking.tsx`, `lib/ghl.ts`, `lib/csp.ts`, `HIGHLEVEL_TRACKING_QA.md`
 
-Also: `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`, `HIGHLEVEL_TRACKING_QA.md`
+Also: `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`

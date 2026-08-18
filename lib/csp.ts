@@ -1,26 +1,9 @@
-function extraOrigins() {
-  const raw = process.env.NEXT_PUBLIC_GHL_CONNECT_ORIGINS || "";
-  return raw
-    .split(/[\s,]+/)
-    .map((item) => item.trim())
-    .filter((item) => /^https:\/\/[a-z0-9.-]+$/i.test(item));
-}
-
-function scriptOrigin() {
-  const src = process.env.NEXT_PUBLIC_GHL_TRACKING_SCRIPT_URL || "";
-  try {
-    const url = new URL(src);
-    if (url.protocol !== "https:") return "";
-    return url.origin;
-  } catch {
-    return "";
-  }
-}
+import { ghlConnectOrigins, ghlScriptOrigin } from "@/lib/ghl";
 
 export function buildCsp(nonce: string) {
   const isDev = process.env.NODE_ENV === "development";
-  const ghl = scriptOrigin();
-  const connect = Array.from(new Set([ghl, ...extraOrigins()].filter(Boolean)));
+  const ghl = ghlScriptOrigin();
+  const connect = ghlConnectOrigins();
   const scriptSrc = [
     "'self'",
     `'nonce-${nonce}'`,

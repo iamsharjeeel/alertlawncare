@@ -2,12 +2,13 @@
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { brand, interestOptions } from "@/lib/brand";
+import { GHL_FORM_NAME } from "@/lib/ghl";
 import { LIMITS, readLead, validateLead, type FieldErrors } from "@/lib/lead";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function AssessmentForm() {
-  const formId = "smart-lawn-pro-assessment";
+  const formId = GHL_FORM_NAME;
   const startedInput = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -104,6 +105,7 @@ export function AssessmentForm() {
     <form
       id={formId}
       name={formId}
+      data-name={formId}
       method="post"
       action="/api/lead"
       onSubmit={onSubmit}
