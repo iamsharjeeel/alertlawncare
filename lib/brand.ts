@@ -27,7 +27,7 @@ export const systems = [
     title: "Keep the cut consistent.",
     body: "A robotic mower works on a recurring schedule instead of waiting for the next lawn day. We assess the property, configure the mowing area and manage the system after installation.",
     image: "/images/lawn.jpg",
-    alt: "Robotic mower on a residential lawn",
+    alt: "Robotic mower working across a residential lawn",
   },
   {
     id: "pool",
@@ -46,8 +46,19 @@ export const systems = [
     body: "Robotic floor systems can handle routine cleaning during lower-traffic periods, giving homes, offices and facilities a cleaner starting point without adding another recurring task to the day.",
     image: "/images/floor.jpg",
     alt: "Robotic floor cleaner along a rug and sofa",
+    specs: ["Mapped indoor routes", "Off-peak operating windows", "Homes, offices and facilities"],
   },
 ] as const;
+
+export const operatingWeek = {
+  days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  rows: [
+    { label: "Typical visit", active: [false, false, false, true, false, false, false] },
+    { label: "Lawn", active: [true, false, true, false, true, false, true] },
+    { label: "Pool", active: [false, true, false, true, false, true, false] },
+    { label: "Floors", active: [true, true, true, true, true, false, false] },
+  ],
+} as const;
 
 export const residentialPoints = [
   "Free property assessment",

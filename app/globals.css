@@ -15,7 +15,8 @@
   --slp-margin: clamp(1.25rem, 5vw, 4.5rem);
   --background: var(--slp-paper);
   --foreground: var(--slp-ink);
-  --font-primary: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: var(--font-archivo), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-primary: var(--font-ibm-plex), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-editorial: var(--font-ibm-plex), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -30,6 +31,7 @@
   --color-hairline: var(--slp-hairline);
   --color-hairline-dark: var(--slp-hairline-dark);
   --font-sans: var(--font-primary);
+  --font-display: var(--font-archivo), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-editorial: var(--font-ibm-plex), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -124,29 +126,71 @@ button {
   letter-spacing: 0.015em;
 }
 
+.nav-link {
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
 .cta {
   font-family: var(--font-editorial);
   font-weight: 600;
   letter-spacing: 0.06em;
 }
 
-.display {
-  font-family: var(--font-primary);
+.cta-ghost {
+  font-family: var(--font-editorial);
   font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.02;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  box-shadow: none;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.94;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .display-hero {
-  letter-spacing: -0.035em;
-  line-height: 0.96;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
 }
 
 .display-sub {
-  font-family: var(--font-primary);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   letter-spacing: -0.015em;
-  line-height: 1.1;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .lead {
@@ -172,19 +216,53 @@ button {
 }
 
 .form-label {
-  font-family: var(--font-primary);
+  font-family: var(--font-editorial);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+.form-rule {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--slp-hairline-dark);
+  padding: 0.7rem 0 0.55rem;
+  font-size: 16px;
+  color: var(--slp-paper);
+}
+
+.form-rule:focus-visible {
+  outline: none;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--slp-amber);
+}
+
+.form-rule[aria-invalid="true"] {
+  border-bottom-color: var(--slp-amber);
+}
+
 .img-editorial {
   filter: grayscale(1) contrast(1.12) brightness(0.92);
 }
 
+.img-grade {
+  filter: grayscale(0.28) saturate(0.88) contrast(1.08) brightness(0.96);
+}
+
+.img-service {
+  filter: grayscale(0.12) saturate(0.92) contrast(1.06) brightness(0.97);
+}
+
 .hairline {
   border-color: var(--slp-hairline);
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 1.2fr) repeat(7, minmax(0, 1fr));
 }
 
 summary::-webkit-details-marker {

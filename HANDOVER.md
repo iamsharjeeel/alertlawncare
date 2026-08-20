@@ -2,9 +2,7 @@
 
 ## What changed
 
-HighLevel External Tracking is live: `https://api.alertlawncare.com/js/external-tracking.js` with tracking ID `tk_a7e73cf9f8df47c9aad3f47eba59e3c4`. CSP allows `backend.leadconnectorhq.com` so pageviews and form submissions can POST. Native assessment form still posts to `/api/lead`.
-
-Prior rebuild: editorial property-maintenance page (lawn, pool, floor; residential and commercial; free on-site assessment).
+Locked the homepage to a cinematic-hero / Swiss-editorial system: Archivo display type, scarce amber, varied system-section scale, a dark pull-quote and operating-week band, editorial assessment form, and separate hero/service photographs.
 
 ## Brand
 
@@ -13,8 +11,9 @@ Prior rebuild: editorial property-maintenance page (lawn, pool, floor; residenti
 - Domain: https://smartlawn.pro
 - Phone: 936-301-4433
 - Area: Conroe, Montgomery, Willis and The Woodlands
-- Fonts: Poppins (primary, 400/500/600), IBM Plex Sans (editorial/utility, 400/500/600)
+- Fonts: Archivo (display 600/700/800), IBM Plex Sans (body/utility 400/500/600)
 - Color tokens: `--slp-ink`, `--slp-forest`, `--slp-forest-deep`, `--slp-amber`, `--slp-paper`
+- Amber use: primary assessment CTAs, form focus/selected/error, wordmark `.PRO`, one hero metadata line
 
 ## HighLevel
 
@@ -81,6 +80,9 @@ This is not a claim that the site is 100% secure.
 
 ## Files
 
-- `app/layout.tsx`, `components/GHLExternalTracking.tsx`, `lib/ghl.ts`, `lib/csp.ts`, `HIGHLEVEL_TRACKING_QA.md`
+- `app/globals.css`, `app/layout.tsx`, `app/thank-you/page.tsx`
+- `components/Hero.tsx`, `SystemsSection.tsx`, `EditorialStatement.tsx`, `AssessmentForm.tsx`, `AssessmentSection.tsx`, `Header.tsx`, `Footer.tsx`, `Testimonials.tsx`, `ProcessSection.tsx`, `AudienceSplit.tsx`, `Wordmark.tsx`
+- `lib/brand.ts`
+- `public/images/hero.jpg`, `public/images/service.jpg`
 
 Also: `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`

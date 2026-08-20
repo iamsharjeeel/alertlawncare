@@ -90,10 +90,10 @@ export function AssessmentForm() {
       <div
         id={successId}
         tabIndex={-1}
-        className="border border-hairline-dark p-6 text-paper"
+        className="border-y border-hairline-dark py-6 text-paper"
       >
         <p className="display-sub text-2xl">Request received.</p>
-        <p className="mt-3 max-w-md text-[16px] text-paper/75">
+        <p className="mt-3 max-w-md text-[16px] text-paper/80">
           We&apos;ll use this information to contact you about your property assessment. You can
           also call {brand.phoneDisplay}.
         </p>
@@ -110,7 +110,7 @@ export function AssessmentForm() {
       action="/api/lead"
       onSubmit={onSubmit}
       noValidate
-      className="grid min-w-0 gap-5"
+      className="grid min-w-0 gap-10"
     >
       <input ref={startedInput} type="hidden" name="form_started_at" defaultValue="" />
       <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
@@ -122,120 +122,127 @@ export function AssessmentForm() {
         <div
           id={summaryId}
           role="alert"
-          className="border border-amber px-3 py-3 text-[14px] text-amber"
+          className="border-y border-amber py-3 text-[14px] text-amber"
         >
           {formError}
         </div>
       ) : null}
 
-      <Field
-        id="full_name"
-        name="full_name"
-        label="Full name"
-        autoComplete="name"
-        required
-        maxLength={LIMITS.full_name}
-        error={errors.full_name}
-      />
-      <Field
-        id="email"
-        name="email"
-        label="Email"
-        type="email"
-        autoComplete="email"
-        required
-        maxLength={LIMITS.email}
-        error={errors.email}
-      />
-      <Field
-        id="phone"
-        name="phone"
-        label="Phone"
-        type="tel"
-        autoComplete="tel"
-        inputMode="tel"
-        required
-        maxLength={LIMITS.phone}
-        error={errors.phone}
-      />
-      <Field
-        id="property_address"
-        name="property_address"
-        label="Property address"
-        autoComplete="street-address"
-        required
-        maxLength={LIMITS.property_address}
-        error={errors.property_address}
-      />
-
-      <fieldset>
-        <legend className="form-label text-paper/70">
-          Property type <span className="text-amber">Required</span>
-        </legend>
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {["Residential", "Commercial"].map((value) => (
-            <label
-              key={value}
-              className="flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
-            >
-              <input type="radio" name="property_type" value={value} required className="accent-amber" />
-              {value}
-            </label>
-          ))}
+      <section className="grid min-w-0 gap-5">
+        <h4 className="meta border-b border-hairline-dark pb-3 text-paper/80">Property details</h4>
+        <div className="grid gap-x-6 gap-y-5 md:grid-cols-2">
+          <Field
+            id="full_name"
+            name="full_name"
+            label="Full name"
+            autoComplete="name"
+            required
+            maxLength={LIMITS.full_name}
+            error={errors.full_name}
+          />
+          <Field
+            id="email"
+            name="email"
+            label="Email"
+            type="email"
+            autoComplete="email"
+            required
+            maxLength={LIMITS.email}
+            error={errors.email}
+          />
+          <Field
+            id="phone"
+            name="phone"
+            label="Phone"
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            required
+            maxLength={LIMITS.phone}
+            error={errors.phone}
+          />
+          <Field
+            id="property_address"
+            name="property_address"
+            label="Property address"
+            autoComplete="street-address"
+            required
+            maxLength={LIMITS.property_address}
+            error={errors.property_address}
+            className="md:col-span-2"
+          />
         </div>
-        {errors.property_type ? (
-          <p className="mt-2 text-[13px] text-amber" role="alert">
-            {errors.property_type}
-          </p>
-        ) : null}
-      </fieldset>
+        <fieldset>
+          <legend className="form-label text-paper/80">
+            Property type <span className="text-paper/70">Required</span>
+          </legend>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            {["Residential", "Commercial"].map((value) => (
+              <label
+                key={value}
+                className="flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
+              >
+                <input type="radio" name="property_type" value={value} required className="accent-amber" />
+                {value}
+              </label>
+            ))}
+          </div>
+          {errors.property_type ? (
+            <p className="mt-2 text-[13px] text-amber" role="alert">
+              {errors.property_type}
+            </p>
+          ) : null}
+        </fieldset>
+      </section>
 
-      <fieldset>
-        <legend className="form-label text-paper/70">
-          Interested in <span className="text-amber">Required</span>
-        </legend>
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {interestOptions.map((option) => (
-            <label
-              key={option.value}
-              className="flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
-            >
-              <input
-                type="checkbox"
-                name="services_interest"
-                value={option.value}
-                className="accent-amber"
-              />
-              {option.label}
-            </label>
-          ))}
-        </div>
-        {errors.services_interest ? (
-          <p className="mt-2 text-[13px] text-amber" role="alert">
-            {errors.services_interest}
-          </p>
-        ) : null}
-      </fieldset>
-
-      <label className="grid gap-2">
-        <span className="form-label text-paper/70">Notes</span>
-        <textarea
-          id="notes"
-          name="notes"
-          rows={4}
-          maxLength={LIMITS.notes}
-          className="w-full min-w-0 border border-hairline-dark bg-transparent px-3 py-2.5 text-[16px] text-paper"
-        />
-      </label>
+      <section className="grid min-w-0 gap-5">
+        <h4 className="meta border-b border-hairline-dark pb-3 text-paper/80">Automation fit</h4>
+        <fieldset>
+          <legend className="form-label text-paper/80">
+            Interested in <span className="text-paper/70">Required</span>
+          </legend>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            {interestOptions.map((option) => (
+              <label
+                key={option.value}
+                className="flex min-h-12 cursor-pointer items-center gap-3 border border-hairline-dark px-3 text-[15px] has-[:checked]:border-amber"
+              >
+                <input
+                  type="checkbox"
+                  name="services_interest"
+                  value={option.value}
+                  className="accent-amber"
+                />
+                {option.label}
+              </label>
+            ))}
+          </div>
+          {errors.services_interest ? (
+            <p className="mt-2 text-[13px] text-amber" role="alert">
+              {errors.services_interest}
+            </p>
+          ) : null}
+        </fieldset>
+        <label className="grid gap-2">
+          <span className="form-label text-paper/80">Notes</span>
+          <textarea
+            id="notes"
+            name="notes"
+            rows={4}
+            maxLength={LIMITS.notes}
+            className="form-rule"
+          />
+        </label>
+      </section>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="cta min-h-12 bg-amber px-6 text-[13px] text-ink uppercase disabled:opacity-60"
+        className="cta min-h-12 w-full bg-amber px-6 text-[13px] text-ink uppercase disabled:opacity-60"
       >
         {status === "submitting" ? "Sending" : "Book my assessment"}
       </button>
-      <p className="text-[14px] text-paper/65">
+      <p className="text-[14px] text-paper/75">
         We&apos;ll use this information to contact you about your property assessment.
       </p>
     </form>
@@ -252,6 +259,7 @@ function Field({
   required,
   maxLength,
   error,
+  className = "",
 }: {
   id: string;
   name: string;
@@ -262,12 +270,13 @@ function Field({
   required?: boolean;
   maxLength?: number;
   error?: string;
+  className?: string;
 }) {
   const errorId = `${id}-error`;
   return (
-    <label className="grid gap-2">
-      <span className="form-label text-paper/70">
-        {label} {required ? <span className="text-amber">Required</span> : null}
+    <label className={`grid gap-2 ${className}`}>
+      <span className="form-label text-paper/80">
+        {label} {required ? <span className="text-paper/70">Required</span> : null}
       </span>
       <input
         id={id}
@@ -279,9 +288,7 @@ function Field({
         maxLength={maxLength}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={`w-full min-w-0 border bg-transparent px-3 py-2.5 text-[16px] text-paper ${
-          error ? "border-amber" : "border-hairline-dark"
-        }`}
+        className="form-rule"
       />
       {error ? (
         <span id={errorId} role="alert" className="text-[13px] text-amber">

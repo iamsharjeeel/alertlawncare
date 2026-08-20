@@ -4,7 +4,17 @@ Editorial marketing site for Smart Lawn Pro (`smartlawn.pro`).
 
 Automated property maintenance: lawn, pool and floor systems for residential and commercial properties.
 
-Typography: Poppins (brand, headings, body, forms) and IBM Plex Sans (navigation, CTAs, labels, metadata). Loaded with `next/font/google`.
+Named style: cinematic-hero with Swiss-editorial structure.
+
+- Canvas: near-black hero, quote band, team and conversion zones; paper body
+- Display: Archivo, heavy uppercase (hero and section headings)
+- Body: IBM Plex Sans (copy, navigation, CTAs, labels, metadata)
+- Accent: amber only for primary assessment CTAs, selected/active form states, wordmark TLD, and one hero marker
+- Grid: 12-column `.slp-grid`, 0px radius, hairlines only
+- Images: monochrome hero; restrained color on selected service imagery
+- Signature moves: section numbering, oversized pull quote, ghost/underline CTA, full-bleed operating-week graphic
+
+Fonts load with `next/font/google`.
 
 ## Setup
 

@@ -17,7 +17,7 @@ export function ProcessSection() {
             key={step.index}
             className="col-span-12 border-t border-hairline py-8 md:col-span-3 md:border-t-0 md:border-l md:py-0 md:pl-5 first:md:border-l-0 first:md:pl-0"
           >
-            <p className="meta text-amber">{step.index}</p>
+            <p className="meta text-muted">{step.index}</p>
             <h3 className="display-sub mt-4 text-[1.65rem]">{step.title}</h3>
             <p className="mt-4 max-w-[28ch] text-[16px] leading-7 text-body">{step.body}</p>
           </li>
