@@ -7,7 +7,7 @@ export function Footer() {
       <div className="slp-grid gap-y-8 py-10 md:py-14">
         <div className="col-span-12 md:col-span-5">
           <Wordmark />
-          <p className="slp-measure mt-4 text-[15px] text-paper/65">
+          <p className="slp-measure mt-4 text-[15px] text-paper/75">
             Automated property maintenance for residential and commercial properties. Serving{" "}
             {brand.serviceArea}.
           </p>
@@ -20,12 +20,12 @@ export function Footer() {
           ))}
         </nav>
         <div className="col-span-12 md:col-span-3 md:text-right">
-          <a href={`tel:${brand.phoneTel}`} className="font-editorial text-amber">
+          <a href={`tel:${brand.phoneTel}`} className="cta-ghost text-[13px] text-paper">
             {brand.phoneDisplay}
           </a>
-          <p className="font-editorial mt-2 text-[14px] text-paper/60">{brand.domain}</p>
+          <p className="font-editorial mt-3 text-[14px] text-paper/75">{brand.domain}</p>
         </div>
-        <p className="font-editorial col-span-12 border-t border-hairline-dark pt-6 text-[13px] text-paper/45">
+        <p className="font-editorial col-span-12 border-t border-hairline-dark pt-6 text-[13px] text-paper/70">
           © {new Date().getFullYear()} {brand.name}.
         </p>
       </div>

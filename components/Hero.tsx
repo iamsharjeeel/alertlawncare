@@ -4,15 +4,15 @@ import { brand } from "@/lib/brand";
 export function Hero() {
   return (
     <section className="bg-ink text-paper" aria-labelledby="hero-heading">
-      <div className="slp-grid items-end gap-y-10 py-12 md:py-20 lg:py-24">
+      <div className="slp-grid items-start gap-y-10 py-12 md:py-20 lg:py-24">
         <div className="col-span-12 flex flex-col gap-3 border-b border-hairline-dark pb-5 md:col-span-7 md:flex-row md:items-end md:justify-between">
           <p className="meta text-paper/80">Automated property maintenance</p>
           <p className="meta text-amber">Residential + Commercial / Texas</p>
         </div>
-        <div className="col-span-12 md:col-span-7 md:pr-8">
+        <div className="col-span-12 md:col-span-7 md:row-start-2 md:pr-8">
           <h1
             id="hero-heading"
-            className="display display-hero max-w-[14ch] text-[clamp(2.4rem,10vw,6rem)]"
+            className="display display-hero max-w-[16ch] text-[clamp(2.2rem,8.5vw,5.25rem)]"
           >
             Routine maintenance shouldn&apos;t wait for service day.
           </h1>
@@ -20,35 +20,34 @@ export function Hero() {
             Smart Lawn Pro installs and manages robotic systems for lawns, pools and floors.
             The equipment works on a schedule. We handle the setup, service and adjustments.
           </p>
-          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
             <a
               href="#assess"
               className="cta inline-flex min-h-12 items-center bg-amber px-6 py-3 text-[13px] text-ink uppercase"
             >
               Book a free on-site assessment
             </a>
-            <a href={`tel:${brand.phoneTel}`} className="font-editorial text-[15px] text-paper/80">
+            <a href={`tel:${brand.phoneTel}`} className="cta-ghost text-[13px] text-paper">
               Call {brand.phoneDisplay}
             </a>
           </div>
-          <p className="trust mt-8 max-w-xl text-[13px] text-paper/55">
+          <p className="trust mt-8 max-w-xl text-[13px] text-paper/75">
             USMC veteran owned / Family operated / Fully managed
           </p>
-          <p className="mt-3 text-[14px] text-paper/55">
+          <p className="mt-3 text-[14px] text-paper/75">
             Serving {brand.serviceArea}.
           </p>
         </div>
-        <div className="col-span-12 md:col-span-5">
-          <div className="relative aspect-[4/3] overflow-hidden bg-forest-deep">
-            <Image
-              src="/images/lawn.jpg"
-              alt="Robotic mower working across a lawn"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 42vw"
-              className="img-editorial object-cover object-[center_30%]"
-            />
-          </div>
+        <div className="col-span-12 md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-1">
+          <Image
+            src="/images/hero.jpg"
+            alt="Maintained Texas residential lawn at dusk with an autonomous robotic mower."
+            width={1536}
+            height={1024}
+            priority
+            sizes="(max-width: 768px) 100vw, 42vw"
+            className="img-editorial h-auto w-full"
+          />
         </div>
       </div>
     </section>

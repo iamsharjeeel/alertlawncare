@@ -31,7 +31,7 @@ export function Header() {
         </a>
         <nav className="nav-type col-span-9 hidden items-center justify-end gap-7 text-[13px] md:col-start-4 md:flex">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} className="text-paper/80 hover:text-paper">
+            <a key={item.href} href={item.href} className="nav-link text-paper/55 hover:text-paper">
               {item.label}
             </a>
           ))}
@@ -42,13 +42,13 @@ export function Header() {
             Book an assessment
           </a>
         </nav>
-        <div className="col-span-4 flex items-center justify-end gap-3 md:hidden">
+        <div className="col-span-4 flex items-center justify-end gap-5 md:hidden">
           <a href="#assess" className="cta bg-amber px-4 py-2 text-[11px] text-ink uppercase">
             Book
           </a>
           <button
             type="button"
-            className="font-editorial min-h-11 border border-hairline-dark px-3 text-[11px] font-semibold tracking-[0.14em] uppercase"
+            className="cta-ghost text-[11px] text-paper"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((value) => !value)}
@@ -70,7 +70,7 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <a href={`tel:${brand.phoneTel}`} className="min-h-11 py-3 text-lg text-amber">
+            <a href={`tel:${brand.phoneTel}`} className="min-h-11 py-3 text-lg text-paper/80">
               {brand.phoneDisplay}
             </a>
           </nav>

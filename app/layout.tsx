@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { connection } from "next/server";
-import { IBM_Plex_Sans, Poppins } from "next/font/google";
+import { Archivo, IBM_Plex_Sans } from "next/font/google";
 import { GHLExternalTracking } from "@/components/GHLExternalTracking";
 import { brand } from "@/lib/brand";
 import "./globals.css";
 
-const poppins = Poppins({
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-poppins",
+  weight: ["600", "700", "800"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const nonce = headerStore.get("x-nonce") ?? undefined;
 
   return (
-    <html lang="en" className={`${poppins.variable} ${ibmPlex.variable} h-full`}>
+    <html lang="en" className={`${archivo.variable} ${ibmPlex.variable} h-full`}>
       <body className="min-h-full bg-paper font-sans text-ink antialiased">
         {children}
         <GHLExternalTracking nonce={nonce} />
