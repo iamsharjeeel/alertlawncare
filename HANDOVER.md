@@ -2,6 +2,8 @@
 
 ## What changed
 
+Replaced the five photographic assets in place (`public/images/hero.jpg`, `lawn.jpg`, `pool.jpg`, `floor.jpg`, `service.jpg`) and updated their alt text. Layout, type, color, and form behavior are unchanged.
+
 Hero photograph now renders at its native 3:2 ratio (`width`/`height`, `h-auto w-full`) so the full frame is visible and the old portrait crop/green block is gone.
 
 Prior: locked the homepage to a cinematic-hero / Swiss-editorial system: Archivo display type, scarce amber, varied system-section scale, a dark pull-quote and operating-week band, editorial assessment form, and separate hero/service photographs.
@@ -85,6 +87,6 @@ This is not a claim that the site is 100% secure.
 - `app/globals.css`, `app/layout.tsx`, `app/thank-you/page.tsx`
 - `components/Hero.tsx`, `SystemsSection.tsx`, `EditorialStatement.tsx`, `AssessmentForm.tsx`, `AssessmentSection.tsx`, `Header.tsx`, `Footer.tsx`, `Testimonials.tsx`, `ProcessSection.tsx`, `AudienceSplit.tsx`, `Wordmark.tsx`
 - `lib/brand.ts`
-- `public/images/hero.jpg`, `public/images/service.jpg`
+- `public/images/hero.jpg`, `public/images/lawn.jpg`, `public/images/pool.jpg`, `public/images/floor.jpg`, `public/images/service.jpg`
 
 Also: `app/`, `components/`, `lib/`, `proxy.ts`, `next.config.ts`

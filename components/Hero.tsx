@@ -41,7 +41,7 @@ export function Hero() {
         <div className="col-span-12 md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-1">
           <Image
             src="/images/hero.jpg"
-            alt="Wide view of a maintained residential lawn at dusk"
+            alt="Maintained Texas residential lawn at dusk with an autonomous robotic mower."
             width={1536}
             height={1024}
             priority

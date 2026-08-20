@@ -29,7 +29,7 @@ export function SystemsSection() {
               alt={lawn.alt}
               fill
               sizes="100vw"
-              className="img-grade object-cover object-center"
+              className="img-grade object-cover object-[center_80%]"
             />
           </div>
         </div>
@@ -58,7 +58,7 @@ export function SystemsSection() {
             alt={pool.alt}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="img-editorial object-cover"
+            className="img-editorial object-cover object-[65%_60%]"
           />
         </div>
       </article>
@@ -73,7 +73,7 @@ export function SystemsSection() {
             alt={floors.alt}
             fill
             sizes="(max-width: 768px) 100vw, 25vw"
-            className="img-grade object-cover"
+            className="img-grade object-cover object-[25%_80%]"
           />
         </div>
         <div className="col-span-12 md:col-span-4">

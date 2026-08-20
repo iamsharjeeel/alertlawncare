@@ -21,10 +21,10 @@ export function Testimonials() {
         <div className="relative col-span-12 aspect-[16/8] overflow-hidden bg-forest-deep md:aspect-[21/8]">
           <Image
             src="/images/service.jpg"
-            alt="Technician walking a maintained lawn while a robotic mower works in the distance"
+            alt="Service technician walking a maintained lawn while a robotic mower works in the background."
             fill
             sizes="100vw"
-            className="img-service object-cover object-[center_40%]"
+            className="img-service object-cover object-[center_58%]"
           />
         </div>
         <p className="meta col-span-12 mt-4 text-paper/75">Managed care / On-site assessment</p>
